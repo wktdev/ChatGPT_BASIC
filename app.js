@@ -5,11 +5,11 @@ let { engine } = require("express-handlebars")
 let bodyParser = require('body-parser');
 
 //___________________________________________ChatGPT__
-console.log(process.env)
+
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: process.env.API
 ,
 });
 const openai = new OpenAIApi(configuration);
@@ -33,7 +33,7 @@ app.get("/",(req,res)=>{
 app.post("/chat-submit", async (req, res) => {
      
 	  const { prompt } = {prompt:req.body.userData};
-	  console.log(req.body)
+	 
 
 	  // Generate a response with ChatGPT
 	  const completion = await openai.createCompletion({
