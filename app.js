@@ -8,7 +8,8 @@ let bodyParser = require('body-parser');
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "",
+  apiKey: process.env.chat_api;
+,
 });
 const openai = new OpenAIApi(configuration);
 //_________________________________________________
