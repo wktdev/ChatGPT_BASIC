@@ -1,14 +1,15 @@
 let express = require('express');
 let app = express();
+const PORT = process.env.PORT || 3030;
 let { engine } = require("express-handlebars")
 let bodyParser = require('body-parser');
 
 //___________________________________________ChatGPT__
-
+console.log(process.env)
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: process.env.chat_api;
+  apiKey: "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"
 ,
 });
 const openai = new OpenAIApi(configuration);
@@ -57,6 +58,8 @@ app.get("*",(req,res)=>{
 
 
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
 
 console.log("server running")
