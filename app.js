@@ -37,9 +37,9 @@ app.post("/chat-submit", async (req, res) => {
 
 	  // Generate a response with ChatGPT
 	  const completion = await openai.createCompletion({
-	    model: "text-davinci-002",
+	    model: "text-davinci-003",
 	    prompt: prompt,
-	    max_tokens:2400
+	    max_tokens:3000
 	  
 	  });
 
@@ -63,3 +63,5 @@ app.listen(PORT, () => {
 });
 
 console.log("server running")
+
+
